@@ -14,11 +14,13 @@ No `lolcat` clone would be complete without this picture, right? So here it is.
 Because Meow is meant to be a minimalistic clone, and due to the limitations of the Windows Console (`conhost.exe`), Meow has very little functionality compared to `lolcat` itself.
 
 **OPTIONS**
-  -f, -File         The file to read from or the text to display.
-  -s, -Spread       The color spread for the color rainbow.
-  
-  -h, -Help         Display the help message.
-  -d, -Demo         Show a demonstration of `meow`.
+
+| Alias | Option  | Description                                    |
+|-------|---------|------------------------------------------------|
+| -f    | -File   | The file to read from or the text to display.  |
+| -s,   | -Spread | The color spread for the color rainbow.        |
+| -h,   | -Help   | Display the help message.                      |
+| -d,   | -Demo   | Show a demonstration of `meow`.                |
 
 ## Installation
 
