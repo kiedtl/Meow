@@ -68,5 +68,14 @@ function meow_internal_demo {
 }
 
 function meow_internal_help {
-    "meow(1) v0.1.0 `nCopyright ${M_INT_COPYRIGHTSYMBOL} $([System.DateTime]::Now.ToString("yyyy")) Kied Llaetenn AGPL-3.0`n`nOPTIONS:`n`t-f, -File`tThe file or text to read from.`n`t-s, -Spread`tThe color spread of the rainbow.`n`n`t-h, -Help`tPrint htis help message.`n`t-d, -Demo`tDemo the Meow program.`n" | Out-String | meow
+    "meow(1) v0.1.0 `nCopyright ${M_INT_COPYRIGHTSYMBOL} $([System.DateTime]::Now.ToString("yyyy")) Kied Llaetenn AGPL-3.0`n`nOPTIONS:`n`t-f, -File`tThe file or text to read from.`n`t-s, -Spread`tThe color spread of the rainbow.`n`n`t-h, -Help`tPrint this help message.`n`t-d, -Demo`tDemo the Meow program.`n`nPlease report all bugs or feature requests to `nhttp://github.com/kiedtl/meow as an issue.`n`nThis program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.  See the
+GNU Affero General Public License v3 for more details.
+" | Out-String | meow
 }
