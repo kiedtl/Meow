@@ -1,7 +1,7 @@
 # Meow
 A minimalistic `lolcat` clone for Windows that actually works.
 
-# What?
+## What?
 No `lolcat` clone would be complete without this picture, right? So here it is.
 
 > ![](http://i3.photobucket.com/albums/y83/SpaceGirl3900/LOLCat-Rainbow.jpg)
