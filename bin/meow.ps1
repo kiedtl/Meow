@@ -21,7 +21,7 @@ param (
 	[switch]$Help
 )
 
-. "$psscriptroot\lib\core.ps1"
+. "$psscriptroot\..\lib\core.ps1"
 
 $M_INT_COPYRIGHTSYMBOL = [char]169
 $E = [char]27
