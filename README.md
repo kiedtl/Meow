@@ -7,7 +7,10 @@ No `lolcat` clone would be complete without this picture, right? So here it is.
 > ![](http://i3.photobucket.com/albums/y83/SpaceGirl3900/LOLCat-Rainbow.jpg)
 
 ## Screenshot
+#### Current Screenshot (v0.2019.01.31)
+![](https://github.com/kiedtl/meow/raw/master/img/screenshot-new.gif)
 
+#### Old screenshot (v0.2.0)
 ![](https://github.com/kiedtl/meow/raw/master/img/screenshot.gif)
 
 ## Usage
