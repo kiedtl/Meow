@@ -1,40 +1,38 @@
+param (
+	[Parameter(
+		ValueFromPipeline=$true
+	)]
+	[Alias('f')]
+	[array]$File,
+
+	[Alias('s')]
+	[int]$Spread = 5,
+
+	[Alias('q')]
+	[double]$Frequency = 1.1,
+
+	[Alias('i')]
+	[switch]$Invert,
+
+	[Alias('d')]
+	[switch]$Demo,
+
+	[Alias('h')]
+	[switch]$Help
+)
 $M_INT_COPYRIGHTSYMBOL = [char]169
-
-function meow {
-	param (
-		[Parameter(
-			ValueFromPipeline=$true
-		)]
-		[Alias('f')]
-		[array]$File,
-
-		[Alias('s')]
-		[int]$Spread = 5,
-
-		[Alias('q')]
-		[double]$Frequency = 1.1,
-
-		[Alias('i')]
-		[switch]$Invert,
-
-		[Alias('d')]
-		[switch]$Demo,
-
-		[Alias('h')]
-		[switch]$Help
-	)
-	$E = [char]27
-	if (!$File ) { if (!($Demo -or $Help)) { break } }
-	if ($Demo  ) { meow_internal_demo	 ;	break }
-	if ($Help  ) { meow_internal_help	 ;	break }
-	if ($Invert) { "$E[7m" }
-	"$E[?25l"
-	$File | Out-String | Foreach-Object {
-		meow_execute $_ $Spread $Frequency
-	}
-	"$E[?25h"
-	if ($Invert) { "$E[27m" }
+$E = [char]27
+if (!$File ) { if (!($Demo -or $Help)) { break } }
+if ($Demo  ) { meow_internal_demo	 ;	break }
+if ($Help  ) { meow_internal_help	 ;	break }
+if ($Invert) { "$E[7m" }
+"$E[?25l"
+$File | Out-String | Foreach-Object {
+	meow_execute $_ $Spread $Frequency
 }
+"$E[?25h"
+if ($Invert) { "$E[27m" }
+
 
 function meow_execute {
 	param (
@@ -92,7 +90,7 @@ function meow_internal_demo {
 }
 
 function meow_internal_help {
-	"meow(1) v0.2.1 `nCopyright ${M_INT_COPYRIGHTSYMBOL} 2018 - $([System.DateTime]::Now.ToString("yyyy")) Kied Llaetenn AGPL-3.0`n`nOPTIONS:`n`t-f, -File`tThe file or text to read from.`n`t-s, -Spread`tThe color spread of the rainbow.`n`n`t-h, -Help`tPrint this help message.`n`t-d, -Demo`tDemo the Meow program.`n`nPlease report all bugs or feature requests to `nhttp://github.com/kiedtl/meow as an issue.`n`nThis program is free software: you can redistribute it and/or modify
+	"meow(1) v0.2019.01.31 `nCopyright ${M_INT_COPYRIGHTSYMBOL} 2018 - $([System.DateTime]::Now.ToString("yyyy")) Kied Llaetenn AGPL-3.0`n`nOPTIONS:`n`t-f, -File`tThe file or text to read from.`n`t-s, -Spread`tThe color spread of the rainbow.`n`n`t-h, -Help`tPrint this help message.`n`t-d, -Demo`tDemo the Meow program.`n`nPlease report all bugs or feature requests to `nhttp://github.com/kiedtl/meow as an issue.`n`nThis program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published
 by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
