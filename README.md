@@ -38,6 +38,7 @@ $ scoop install meow
 ```
 
 ## License
+I'm a cranky dev, and i'm not too fond of people freely using my stuff that I worked hard on, so I've licensed my work under the following license:
 - AGPL-v3.0
 
 
