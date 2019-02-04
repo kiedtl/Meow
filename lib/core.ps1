@@ -20,7 +20,7 @@ function meow_execute {
 		$c_txt += $s_txt[$i] 
 	}
 
-	$i = 0
+	$i = ((get-random -setseed (get-random -setseed ([datetime]::now.tostring("HHmmss")))) % (get-random -maximum 255))
 	[int]$r = ([math]::sin($Spread * ($i / $Spread) + 0) * 127 + 128)
 	[int]$g = ([math]::sin($Spread * ($i / $Spread) + 2 * [math]::pi / 3) * 127 + 128)
 	[int]$b = ([math]::sin($Spread * ($i / $Spread) + 4 * [math]::pi / 3) * 127 + 128)	
