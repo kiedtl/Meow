@@ -10,7 +10,7 @@ No `lolcat` clone would be complete without this picture, right? So here it is.
 #### Current Screenshot (v0.2019.01.31)
 ![](https://github.com/kiedtl/meow/raw/master/img/screenshot-new.gif)
 
-#### Old screenshot (v0.2.0)
+#### Old screenshot (v0.2019.01.15)
 ![](https://github.com/kiedtl/meow/raw/master/img/screenshot.gif)
 
 ## Usage
@@ -30,17 +30,33 @@ Because Meow is meant to be a minimalistic clone, and due to the limitations of 
 
 ## Installation
 
-Just download the `source.zip` file from the releases (latest is v0.1.2) and add `meow.ps1` to your `$PATH`.
+If you have Git installed, clone the repository into whatever directory you want and add the `bin\meow.ps1` file to your PATH. And if you don't, install it and come back later.
 
 You can also painlessly install Meow with [Scoop](https://scoop.sh).
-
-First, though, add the [Open-Scoop](https://github.com/kiedtl/open-scoop) bucket if you haven't already. (To see if you have, just run `scoop bucket list`.)
+First, ensure that you have the `extras` bucket added:
 ```powershell
-$ scoop bucket add https://github.com/kiedtl/open-scoop open-scoop
+$ scoop bucket list
+nirsoft
+java
+blah blah
+...
+
+extras
 ```
+
+If you don't, add it.
+```
+$ scoop bucket add extras
+```
+
 Then install Meow:
 ```powershell
 $ scoop install meow
+```
+
+Updating to the latest version is also easy:
+```powershell
+$ scoop update meow 
 ```
 
 ## License
