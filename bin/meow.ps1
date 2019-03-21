@@ -1,40 +1,41 @@
 #!/usr/bin/env pwsh
 
 param (
-	[Parameter(
-		ValueFromPipeline=$true
-	)]
-	[Alias('f')]
-	[array]$File,
+    [Parameter(
+        ValueFromPipeline = $true
+    )]
+    [Alias('f')]
+    [string]$file,
 
-	[Alias('s')]
-	[int]$Spread = 5,
+    [Alias('s')]
+    [double]$spread = 3,
 
-	[Alias('q')]
-	[double]$Frequency = 1.1,
+    [Alias('q')]
+    [double]$frequency = 0.1,
 
-	[Alias('i')]
-	[switch]$Invert,
+    [Alias('i')]
+    [switch]$invert,
 
-	[Alias('d')]
-	[switch]$Demo,
+    [Alias('d')]
+    [switch]$demo,
 
-	[Alias('h')]
-	[switch]$Help
+    [Alias('h')]
+    [switch]$help
 )
 
-. "$psscriptroot\..\lib\core.ps1"
+process {
+	. "$psscriptroot/../lib/core.ps1"
+    $M_INT_COPYRIGHTSYMBOL = [char]169
+    $E = [char]27
+	$escapeseq = "38"
+    if (!$file ) { if (!($demo -or $help)) { break } }
+    if ($demo  ) { meow_internal_demo	 ;	break }
+    if ($help  ) { meow_internal_help	 ;	break }
+    if ($invert) { $escapeseq = "48" }
+    write-host "$E[?25l" -nonewline
 
-$M_INT_COPYRIGHTSYMBOL = [char]169
-$E = [char]27
+    $input | out-string | meow_execute -Spread $spread -Freq $frequency -Escape $escapeseq
 
-if (!$File ) { if (!($Demo -or $Help)) { break } }
-if ($Demo  ) { meow_internal_demo	 ;	break }
-if ($Help  ) { meow_internal_help	 ;	break }
-if ($Invert) { "$E[7m" }
-"$E[?25l"
-$File | Out-String | Foreach-Object {
-	meow_execute $_ $Spread $Frequency
+    $E = [char]27
+    write-host "$E[?25h" -nonewline
 }
-"$E[?25h"
-if ($Invert) { "$E[27m" }
