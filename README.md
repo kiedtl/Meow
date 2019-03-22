@@ -21,14 +21,14 @@ Because Meow is meant to be a minimalistic clone, and due to the limitations of 
 
 **OPTIONS**
 
-| Alias | Option         | Description                                     |
-|-------|----------------|-------------------------------------------------|
-|  -f   |  -File         |  The file to read from or the text to display.  |
-|  -s   |  -Spread       |  The color spread for the color rainbow.        |
-|  -q   |  -Frequency    |  The frequency of the color spread.             |
-|  -i   |  -Invert       |  Invert the foreground and background colors.   |
-|  -h   |  -Help         |  Display the help message.                      |
-|  -d   |  -Demo         |  Show a demonstration of `meow`.                |
+| Alias | Option         | Description                                                                                 |
+|-------|----------------|---------------------------------------------------------------------------------------------|
+|       |  -text         |  The text to display. (as of v0.2019.03.22, meow no longer supports reading from files.)    |
+|  -s   |  -spread       |  The color spread for the color rainbow.                                                    |
+|  -q   |  -frequency    |  The frequency of the color spread.                                                         |
+|  -i   |  -invert       |  Invert the foreground and background colors.                                               |
+|  -h   |  -help         |  Display the help message.                                                                  |
+|  -d   |  -demo         |  Show a demonstration of `meow`.                                                            |
   
 
 ## Installation
