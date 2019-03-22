@@ -4,37 +4,37 @@ param (
     [Parameter(
         ValueFromPipeline = $true
     )]
-    [Alias('f')]
-    [string]$file,
-
-    [Alias('s')]
-    [double]$spread = 3,
-
-    [Alias('q')]
+    [string]$text,
+    [alias('s')]
+    [double]$spread = 3.0,
+    [alias('q')]
     [double]$frequency = 0.1,
-
-    [Alias('i')]
+    [alias('i')]
     [switch]$invert,
-
-    [Alias('d')]
+    [alias('d')]
     [switch]$demo,
-
-    [Alias('h')]
+    [alias('h')]
     [switch]$help
 )
 
+begin {
+    . "$psscriptroot/../lib/core.ps1"
+}
+
 process {
-	. "$psscriptroot/../lib/core.ps1"
+    if ($text -eq $null) {
+        $text = $input
+    }
     $M_INT_COPYRIGHTSYMBOL = [char]169
     $E = [char]27
-	$escapeseq = "38"
-    if (!$file ) { if (!($demo -or $help)) { break } }
+  	$escapeseq = "38"
+    if (!$text ) { if (!($demo -or $help)) { break } }
     if ($demo  ) { meow_internal_demo	 ;	break }
     if ($help  ) { meow_internal_help	 ;	break }
     if ($invert) { $escapeseq = "48" }
     write-host "$E[?25l" -nonewline
 
-    $input | out-string | meow_execute -Spread $spread -Freq $frequency -Escape $escapeseq
+    $text | out-string | meow_execute -Spread $spread -Freq $frequency -Escape $escapeseq
 
     $E = [char]27
     write-host "$E[?25h" -nonewline
