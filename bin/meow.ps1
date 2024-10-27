@@ -33,7 +33,8 @@ process {
     if ($help  ) { meow_internal_help	 ;	break }
     if ($invert) { $escapeseq = "48" }
     write-host "$E[?25l" -nonewline
-
+    $ANSI_REGEX = "`e\[[0-9;?]*[A-Za-z]"
+    $text = $text -Replace $ANSI_REGEX,""
     $text | out-string | meow_execute -Spread $spread -Freq $frequency -Escape $escapeseq
 
     $E = [char]27
