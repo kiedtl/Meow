@@ -21,7 +21,7 @@ function meow_execute {
     [int]$r = ([math]::sin($Freq * ($script:i / $Spread) + 0) * 127 + 128)
     [int]$g = ([math]::sin($Freq * ($script:i / $Spread) + 2 * [math]::pi / 3) * 127 + 128)
     [int]$b = ([math]::sin($Freq * ($script:i / $Spread) + 4 * [math]::pi / 3) * 127 + 128)
-    $c_txt | % {
+    $c_txt | ForEach-Object {
         write-host "$E[${Escape};2;${r};${g};${b}m$_$E[0m" -nonewline
         [bool]$isWhitespace = if ($_ -eq " ") { $true } else { $false }
         if ($_ -eq "`n") {
@@ -40,7 +40,7 @@ function meow_execute {
 function meow_internal_demo {
 	$i = 0
 	$s = ""
-	1..102 | % {
+	1..102 | ForEach-Object {
 		$s += "Hello, World!"
 		$i++
 		if ($i -gt 5) {
