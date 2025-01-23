@@ -9,7 +9,8 @@ function meow_execute {
         [string]$File,
         [double]$Spread,
         [double]$Freq,
-		    [string]$Escape = "38"
+        [int]$Seed,
+        [string]$Escape = "38"
     )
     [char]$E = [char]27
     [string]$s_txt = $File
@@ -18,6 +19,11 @@ function meow_execute {
         $c_txt += $s_txt[$c]
     }
 
+    # Check if $Seed is not 0 and set $i_initial accordingly
+    if ($Seed -ne 0) {
+        $script:i = $Seed
+        $script:i_initial = $Seed
+    }
     [int]$r = ([math]::sin($Freq * ($script:i / $Spread) + 0) * 127 + 128)
     [int]$g = ([math]::sin($Freq * ($script:i / $Spread) + 2 * [math]::pi / 3) * 127 + 128)
     [int]$b = ([math]::sin($Freq * ($script:i / $Spread) + 4 * [math]::pi / 3) * 127 + 128)
@@ -52,6 +58,8 @@ function meow_internal_demo {
 }
 
 function meow_internal_help {
+    $M_INT_COPYRIGHTSYMBOL = [char]169
+
     "`nmeow(1) v0.2019.03.22
 Copyright ${M_INT_COPYRIGHTSYMBOL} 2018 - $([System.DateTime]::Now.ToString("yyyy")) Kied Llaetenn AGPL-3.0
 

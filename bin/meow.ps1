@@ -11,6 +11,8 @@ The file or text to read from.
 The color spread of the rainbow.
 .PARAMETER frequency
 Specify a color frequency
+.PARAMETER seed
+The seed for the random number generator.
 .PARAMETER invert
 Invert the background and foreground colors.
 .PARAMETER demo
@@ -45,6 +47,8 @@ param (
     [double]$spread = 3.0,
     [alias('q')]
     [double]$frequency = 0.1,
+    [alias('e')]
+    [int]$seed = 0,
     [alias('i')]
     [switch]$invert,
     [alias('d')]
@@ -61,7 +65,6 @@ process {
     if ($text -eq $null) {
         $text = $input
     }
-    $M_INT_COPYRIGHTSYMBOL = [char]169
     $E = [char]27
   	$escapeseq = "38"
     if (!$text ) { if (!($demo -or $help)) { break } }
@@ -71,7 +74,7 @@ process {
     write-host "$E[?25l" -nonewline
     $ANSI_REGEX = "`e\[[0-9;?]*[A-Za-z]"
     $text = $text -Replace $ANSI_REGEX,""
-    $text | out-string | meow_execute -Spread $spread -Freq $frequency -Escape $escapeseq
+    $text | out-string | meow_execute -Spread $spread -Freq $frequency -Seed $seed -Escape $escapeseq
 
     $E = [char]27
     write-host "$E[?25h" -nonewline
